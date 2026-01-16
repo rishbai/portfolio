@@ -2,21 +2,21 @@ import { useEffect, useState, useRef } from "react";
 import "./App.css";
 
 export default function App() {
-  const [scrollY, setScrollY] = useState(0);
+  // const [setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  useEffect(() => {
-    const onScroll = () => {
-      setScrollY(window.scrollY);
-    };
+  // useEffect(() => {
+  //   // const onScroll = () => {
+  //   //   setScrollY(window.scrollY);
+  //   // };
 
-    window.addEventListener("scroll", onScroll);
+  //   window.addEventListener("scroll", onScroll);
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", onScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -106,25 +106,6 @@ export default function App() {
     }
   ];
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-  };
 
   return (
     <div className="app">
